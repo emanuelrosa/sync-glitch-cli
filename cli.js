@@ -17,7 +17,11 @@ if (process.env.CI) {
 
 ;(async () => {
   const glitchClient = new GlitchAPI(process.env.GLITCH_TOKEN)
-  const response = await glitchClient.importFromGithub(process.env.GLITCH_PROJECT_ID, process.env.GH_REPO)
+  const response = await glitchClient.importFromGithub(
+    process.env.GLITCH_PROJECT_ID,
+    process.env.GH_REPO,
+    process.env.GH_PATH
+  )
 
   if (response.status !== 200) {
     const output = [
